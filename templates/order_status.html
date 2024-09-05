@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ÁÖ¹®È®ÀÎ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/order_status.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="order-check-container">
+        <div class="header">
+            <div class="logo">
+                <img class="appNupanIcon" src="{{ url_for('static', filename='assets/IconSample.png') }}" alt="App Nupan Logo" />
+                <h1 class="app-title">APP-nupan</h1>
+            </div>
+            <button class="back-button" onclick="goBack()" style="cursor: 'pointer'">µÚ·Î°¡±â</button>
+        </div>
+        <div class="divider"></div>
+        <div class="order-header">
+            <h2>ÁÖ¹®È®ÀÎ</h2>
+            <h2 id="order-count">ÇöÀç ÁÖ¹® °Ç¼ö : 0°Ç</h2>
+        </div>
+        <div class="order-list-table">
+            <div class="table-list">
+                <span class="order-column">ÁÖ¹®½Ã°£</span>
+                <span class="order-column">Å×ÀÌºí ¹øÈ£</span>
+                <span class="order-column">ÁÖ¹® ¸Þ´º</span>
+                <span class="order-column">¼ö·®</span>
+                <span class="order-column">°áÁ¦¿©ºÎ</span>
+                <span class="order-column">±Ý¾×</span>
+            </div>
+            <div id="order-list" class="order-list">
+                <!-- ÁÖ¹® ¾ÆÀÌÅÛÀÌ ¿©±â Ãß°¡µË´Ï´Ù. -->
+            </div>
+        </div>
+        <div id="order-detail-frame" class="order-detail-frame" style="display: none;">
+            <div class="frame-header">
+                <span class="order-detail-title">ÁÖ¹®»ó¼¼</span>
+            </div>
+            <div class="detail-info">
+                <div class="detail-list">
+                    <span class="detail-menu-quantity" id="detail-tablenumber">Å×ÀÌºí ¹øÈ£ :</span>
+                    <span id="detail-ordertime">ÁÖ¹®½Ã°£ :</span>
+                </div>
+            </div>
+            <div class="detail-list">
+                <span>¸Þ´ºÀÌ¸§</span>
+                <span class="detail-menu-quantity">¼ö·®</span>
+                <span>±Ý¾×</span>
+            </div>
+            <div id="detail-info-container" class="detail-info-container">
+                <!-- ÁÖ¹® »ó¼¼ Á¤º¸°¡ ¿©±â Ãß°¡µË´Ï´Ù. -->
+            </div>
+            <div class="price-sum">
+                <span>±Ý¾×ÇÕ°è</span>
+                <span id="price-sum">0\</span>
+            </div>
+            <div class="btn-container-detail">
+                <button class="close-btn" onclick="closeOrderDetail()">´Ý±â</button>
+                <button class="serve-done-btn" onclick="handleServeDone()">¼­ºù¿Ï·á</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/order_status.js') }}"></script>
+</body>
+</html>
